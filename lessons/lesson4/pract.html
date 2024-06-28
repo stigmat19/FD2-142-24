@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type='button' value='start' onclick='start()'>
+
+    <input type='button' value='start' onclick='check()'>
+    <script>
+        function start(){
+            const x = parseInt(prompt('enter x'));
+            const operation = prompt('enter operation');
+            const y = parseInt(prompt('enter y'));
+
+            switch(operation){
+                case "+": console.log('result', x + y); break;
+                case "-": console.log('result', x - y); break;
+                case "/": console.log('result', x / y); break;
+                case "*": console.log('result', x * y); break;
+            }
+        }
+
+        
+    </script>
+
+    
+</body>
+</html>
