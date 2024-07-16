@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        function Car(_brand) {
+            this.brand = _brand;
+
+            this.run = function(func){
+                func()
+            }
+        }   
+
+        const bmw = new Car("BMW");
+
+        // function sayHello () {
+        //     console.log('Hello')
+        // }
+
+        // bmw.run(sayHello);
+
+        function square (value, index) {
+            console.log('---value', value);
+            console.log('---index', index);
+            console.log('================');
+        }
+
+        const result = [1,2,3].map(value => value * value);
+        
+        const rrr = [0,1,2,3,3,5].some(value =>{
+           return isNaN(parseInt(value))
+        })
+
+        const ttt = [0,1,2,'test',3,3,5].every(value =>{
+           return !isNaN(parseInt(value))
+        });
+
+        const filter = [1,2,3,4,5,6,7,8,9].filter(value => {
+            return value < 2
+        })
+        const find = [1,2,3,4,5,6,7,8,9].find(value => {
+            return value < 2
+        })
+
+        const summ = [1,2,3,4,5,6,7,8,9].reduce((previos, value) => {
+            return previos*=value
+        }, 1)
+
+        const flat = [ 5, 7, [ 4, [2], 8, [1,3], 2 ], [ 9, [] ],  1, 8 ]
+            .flat(2)
+            .reduce((acc, value) => acc+=value, 0)
+        
+
+        const sorting = [7,55,9,22].sort((a,b) => {
+            return b - a
+        })    
+    </script>   
+    
+</body>
+</html>

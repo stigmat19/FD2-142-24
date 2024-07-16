@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <style>
+        #app{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    &copy;
+    <p>https://www.onliner.by/</p>
+    <a href="https://www.onliner.by/"></a>
+    <div id="app">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem at quas quod dolore, sit quidem neque a, deserunt mollitia sed ex qui ipsam maiores voluptatibus dolorum id cupiditate praesentium quibusdam!
+    </div>
+
+    <script>
+
+        const home1 = {
+            field1: 'Hello',
+            field2: true,
+            field3: 5,
+            roof: true
+        }
+
+        const home2 = {
+            field1: 'Hello',
+            field2: true,
+            field3: 5,
+            wall: true
+        }
+
+        function Home(_field1, _field2, _field3) {
+            const test = "test";
+
+            this.field1 = _field1;
+            this.field2 = _field2;
+            this.field3 = _field3;
+            this.build = function () {
+                console.log('hello', test)
+            }
+        }
+
+        const home = new Home('test', false, 10);
+       
+
+        function getUserData(num, num1) {
+            if (typeof num === 'string') {
+                console.log('str1', num);
+                console.log('str2', num1);
+            } else {
+                console.log(num + num1);
+            }
+        }
+
+        getUserData(1, 2);
+        getUserData("Hello", "world");
+
+
+        
+    </script>
+
+</body>
+
+</html>

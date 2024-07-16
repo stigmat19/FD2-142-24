@@ -26,7 +26,8 @@
 
 </head>
 <body>
-    
+    <button onclick="handleUp()">up</button> <br>
+    <button>down</button>
     <div id="app"></div>
 
 
@@ -39,6 +40,7 @@
                 model: 'x5',
                 color: 'black',
                 year: 2020,
+                price: 200,
                 imgUrl: 'https://www.bmw.by/content/dam/bmw/common/all-models/m-series/series-overview/bmw-m-series-seo-overview-ms-04.jpg'
             },
             {
@@ -46,6 +48,7 @@
                 model: 'q8',
                 color: 'red',
                 year: 2022,
+                price: 300,
                 imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Audi_A7_Sportback_Genf_2018.jpg/458px-Audi_A7_Sportback_Genf_2018.jpg'
             },
             {
@@ -53,14 +56,15 @@
                 model: 'GLS',
                 color: 'blue',
                 year: 2021,
+                price: 100,
                 imgUrl: 'https://avatars.mds.yandex.net/get-vertis-journal/4466156/2020-09-24-b5cd5bc95c344d2caa5eb7e984b80e34.jpg_1622736693885/orig'
             },
         ];
 
-        function render(){
+        function render(parent, arr){
             let htmlElems = '';
 
-            for(let i=0; i<cars.length; i++){
+            for(let i=0; i<arr.length; i++){
                 htmlElems += `
                 <div class="card" style="width: 18rem;">   
                     <div class="card-body">
@@ -74,11 +78,22 @@
                 </div>
                 `
             }
-            app.innerHTML = htmlElems; 
+            parent.innerHTML = htmlElems; 
         }
 
-        render()
+        render(app, cars)
 
+        const up = (cars) => {
+            const sortCars = cars.sort((a,b) => {
+                return a.price - b.price
+            })
+
+            render(app, sortCars)
+        } 
+
+        const handleUp = () => {
+            up(cars);
+        } 
 
     </script>
 
