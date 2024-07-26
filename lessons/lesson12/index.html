@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 10000px;
+        }
+        .wrap{
+            width: 300px;
+            height: 320px;
+            background-color: aqua;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 50px;
+        }
+        ul li:first-child{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <button onclick="addElem()">add elem</button>
+    <div class="wrap" title="Hello">
+        <div class="item" alt="world"></div>
+    </div>
+
+    <form id="forms" name="TestForm" action="http://fe.it-academy.by/TestForm.php">
+        <input type="text" name="name">
+
+        <select name="select" id="" size="3" multiple>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <button type="submit">send</button>
+    </form>
+
+    <form  name="TestForm1" action="http://fe.it-academy.by/TestForm.php">
+        <input type="text" name="name1">
+        <button type="submit">send</button>
+    </form>
+
+
+    <ul class="menu"> 
+        <li>one</li>
+        <li class="li">two</li>
+        <li>three</li>
+    </ul>
+
+   
+
+    <script>
+        const wrap = document.getElementsByClassName('wrap');
+        const item = document.getElementsByClassName('item');
+
+        const user = {
+            name: 'Ivan',
+            age: 25
+        }
+       
+        const obj = {
+            0: 'sdsds',
+            1: 'sdsd'
+        }
+
+        function getEl(selector){
+            return document.querySelector(selector)
+        }
+        getEl('[name="name"]').focus();
+
+        const addElem = (imgUrl) => {
+            const p = document.createElement('p');
+            const text = document.createTextNode('Hello');
+            const p1 = document.createElement('span');
+            const text1 = document.createTextNode('Hello111');
+           
+            const img = document.createElement('img');
+
+            p.appendChild(text);
+            p1.appendChild(text1);
+            item[0].appendChild(p1);
+            item[0].appendChild(p);
+            
+        }
+    </script>
+    
+</body>
+</html>

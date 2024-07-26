@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <input type="text" style="color: red;">
+    <input type="email">
+
+    <div id="app" class="test">
+        hello
+        <ul>
+            <li>
+                text1
+                <a href="">link1</a>
+            </li>
+            <li>
+                text2
+                <a href="">link2</a>
+            </li>
+            <li>
+                text3
+                <a href="">link3</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // es5
+        // function Car(brand){
+        //     const wheel = 4;
+
+        //     this.brand = brand;
+
+        //     this.show = function(){
+        //         console.log(this.brand + " имеет " + this.wheel + " колеса")
+        //     }
+        // }
+
+        
+        // Car.prototype.run = function(){
+        //     console.log('car is run')
+        // }
+
+        class Car {
+            constructor(brand){
+                this.brand = brand;
+            }
+
+            show(){
+                console.log(this.brand)
+            }
+
+            run = function() {
+                console.log(this.brand)
+            }
+
+            static engine = 'benzin';
+
+            static sayHello = () => {
+                console.log('hello')
+            }
+        }
+        const bmw = new Car("Bmw");
+        const mers = new Car('Mers');
+        const audi = new Car('Audi');
+
+        const userDepositData = {}
+        // audi.run = function(){
+        //     console.log('audi is run')
+        // }
+
+
+        // const person = {
+        //     name: "Ivan",
+        //     age: 30,
+        //     gender: "W",
+        //     child: {
+        //         name: "Sidr",
+        //         age: 10,
+        //         gender: "M",
+        //     }
+        // }
+
+        // const p1 = { ...person };
+
+        // const [ one, two, three, ...other ] = [1,2,3,4,5,6];
+
+        // const arr = [1,2,3];
+        // const arr1 = [4,5,6];
+
+        // const name = "Ivan";
+
+        // const user = {
+        //     age: 25,
+        //     gender: "M",
+        //     name
+        // }
+
+    </script>
+    
+</body>
+</html>

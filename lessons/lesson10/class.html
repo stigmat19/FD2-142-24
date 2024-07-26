@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div></div>
+
+    <script>
+
+        function Car(brand){
+            this.brand = brand
+
+            this.drive = function(){
+                console.log('------drive')
+            }
+        }
+
+        const bmw = new Car('Bmw');
+
+        bmw.drive()
+
+        console.log(bmw.brand);
+
+        class Car1{
+            constructor(brand){
+                this.brand = brand
+            }
+
+            drive(){
+                console.log('------drive')
+            }
+        }
+
+        function test(){
+            console.log("1111", this);
+        }
+
+        test();
+
+        var a = "Hello";    
+
+
+        const result = [1,2,3,4,5,6,7,8,9]
+            .filter(value => value%2 === 0)
+            .filter(value => value < 5)
+
+        const result1 = [1,2,3,4,5,6,7,8,9]
+            .filter(value => value%2 === 0)
+             
+        const res = result1.filter(value => value < 5)   
+
+      
+
+
+
+
+        function DrinkHashClass(){
+            const drinks = [];
+
+            this.addValue = function(){
+                const name = prompt();
+
+                drinks.push(name)
+            }
+
+            this.getDrinks = function(){
+                drinks.forEach(value => console.log(value))
+            }
+        }
+
+
+        const margarita = new DrinkHashClass();
+
+
+
+
+    </script>
+
+</body>
+</html>

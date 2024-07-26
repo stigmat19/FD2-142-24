@@ -26,6 +26,7 @@
 
 </head>
 <body>
+    <input type="text" id="input" onchange="test()">
     <button onclick="handleUp()">up</button> <br>
     <button>down</button>
     <div id="app"></div>
@@ -34,6 +35,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         const app = document.getElementById('app');
+        const input = document.getElementById('input');
         const cars = [
             {
                 brand: 'bmw',
@@ -61,24 +63,33 @@
             },
         ];
 
-        function render(parent, arr){
-            let htmlElems = '';
 
+        const createCardapp = (data) => {
+            const img = document.createElement('img');
+            img.src = data.imgUrl;
+            img.className = 'card-img-top';
+
+            const h5 = document.createElement('h5');
+            h5.textContent = data.brand;
+            h5.className = 'card-title';
+
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.style.width = '18rem';
+
+            cardBody.appendChild(img);
+            cardBody.appendChild(h5);
+            card.appendChild(cardBody);
+            app.appendChild(card);
+        }
+
+        function render(parent, arr){
             for(let i=0; i<arr.length; i++){
-                htmlElems += `
-                <div class="card" style="width: 18rem;">   
-                    <div class="card-body">
-                        <img src="${cars[i].imgUrl}" class="card-img-top">
-                        <h5 class="card-title">${cars[i].brand}</h5>
-                        <p class="card-text">${cars[i].model}</p>
-                        <p class="card-text">${cars[i].color}</p>
-                        <p class="card-text">${cars[i].year}</p>
-                        <a href="#" class="btn btn-primary">buy now</a>
-                    </div>
-                </div>
-                `
+                createCardapp(arr[i]);
             }
-            parent.innerHTML = htmlElems; 
         }
 
         render(app, cars)
@@ -95,7 +106,28 @@
             up(cars);
         } 
 
+        const test = () => {
+            console.log('----1', input.value)
+            const filteredCars = cars.filter(car => car.brand === input.value);
+            render(app, filteredCars)
+        }
+
+
+        
     </script>
 
 </body>
 </html>
+
+<!-- <div class="card" style="width: 18rem;">   
+    <div class="card-body">
+        <img src="${arr[i].imgUrl}" class="card-img-top">
+        <h5 class="card-title">${arr[i].brand}</h5>
+        <p class="card-text">${arr[i].model}</p>
+        <p class="card-text">${arr[i].color}</p>
+        <p class="card-text">${arr[i].year}</p>
+        <a href="#" class="btn btn-primary">buy now</a>
+    </div>
+</div> -->
+
+https://github.com/stigmat19/FD2-142-24
