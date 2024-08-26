@@ -27,7 +27,7 @@
         })
 
         
-        const test = (id) => {
+        const deleteCurrentUser = (id) => {
             const users = JSON.parse(localStorage.getItem('users'));
 
             const filteredUser = users.filter(element => {
@@ -41,7 +41,7 @@
             h1.innerHTML = htmlElems;
         }
         
-        const renderUser = (userData) => `<span>${userData.name}</span> - <span>${userData.age}</span> - <span>${userData.gender}</span> <button data-id="${userData.id}" onClick="test(${userData.id})">del</button><br>`
+        const renderUser = (userData) => `<span>${userData.name}</span> - <span>${userData.age}</span> - <span>${userData.gender}</span> <button data-id="${userData.id}" onClick="deleteCurrentUser(${userData.id})">del</button><br>`
 
     </script>
 
