@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1></h1>
+    
+    <script>
+        const h1 = document.querySelector('h1');
+        let deleteBtn = null; 
+
+        window.addEventListener('storage', () => {
+            const users = JSON.parse(localStorage.getItem('users'));
+
+            let htmlElems = '';
+
+            users.forEach(element => {
+                htmlElems+=renderUser(element)
+            });
+
+            h1.innerHTML = htmlElems;
+        })
+
+        
+        const test = (id) => {
+            const users = JSON.parse(localStorage.getItem('users'));
+
+            const filteredUser = users.filter(element => {
+                return parseInt(element.id) !== id
+            });
+            let htmlElems = '';
+            filteredUser.forEach(user => {
+                htmlElems+=renderUser(user)
+            })
+            localStorage.setItem('users', JSON.stringify(filteredUser))
+            h1.innerHTML = htmlElems;
+        }
+        
+        const renderUser = (userData) => `<span>${userData.name}</span> - <span>${userData.age}</span> - <span>${userData.gender}</span> <button data-id="${userData.id}" onClick="test(${userData.id})">del</button><br>`
+
+    </script>
+
+</body>
+</html>

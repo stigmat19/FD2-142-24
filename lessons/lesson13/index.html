@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 10000px;
+        }
+        #app{
+            margin-top: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+    <form name="form" action="http://fe.it-academy.by/TestForm.php" method="post">
+        <input type="text" name="_name"> <br>
+        <input type="submit">
+    </form> 
+    <a href="#" id="link" >онлайнер</a>
+
+  
+    <script>
+
+       
+
+        const link = document.getElementById('link');
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            window.location.href = "https://www.kufar.by/l"
+        })
+
+
+
+
+       const form = document.forms.form;
+       const inp = document.querySelector('[name="_name"]');
+       const sub = document.querySelector('[type="submit"]');
+       form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if(!inp.value){
+                alert('поле пустое, заполните его');
+
+                return false;
+            }
+
+            e.target.submit();
+       }) 
+
+
+       sub.addEventListener('mouseover', () => {
+            console.log('mouseover')
+       })
+       
+       sub.addEventListener('mousedown', () => {
+            console.log('mousedown')
+       })
+       
+       sub.addEventListener('mouseup', () => {
+            console.log('mouseup')
+       })
+
+       window.addEventListener('mouseup', () => {
+            console.log('mouseup')
+       })
+       
+       sub.addEventListener('mouseout', () => {
+            console.log('mouseout')
+       })
+
+       sub.addEventListener('mousemove', () => {
+            console.log('mousemove')
+       })
+
+        
+    </script>
+</body>
+</html>

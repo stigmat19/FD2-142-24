@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .SModalGlass {
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            transform: translate(-100%, 0);
+        }
+    
+        .SModalWindow {
+            padding: 0 20px 20px 20px;
+            background-color: lightgray;
+            width: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transition: 0.5s;
+            transform: translate(-50%,-50%);
+        }
+    
+    </style>
+</head>
+<body>
+    
+    
+    <div id='IMyModal' class='SModalGlass' onclick='modalGlassClick()'>
+        <div class='SModalWindow' onclick='modalWindowClick(event)'>
+            <h1 style='text-align: center'>СТИХИ</h1>
+            <p>Однажды в студёную зимнюю пору я из лесу вышел был сильный мороз</p>
+            <input type=button value='согласен' onclick='closeModal()'>
+        </div>
+    </div>
+    
+    <input type=button value='открыть модальное окно' onclick='openModal()'>
+    
+    <script>
+    
+    function openModal() {
+        document.getElementById('IMyModal').style.transform='translate(0, 0)';
+    }
+    
+    function closeModal() {
+        document.getElementById('IMyModal').style.transform='translate(-100%, 0)';
+    }
+    
+    function modalGlassClick() {
+        console.log('modal glass click');
+        document.getElementById('IMyModal').style.transform='translate(-100%, 0)';
+    }
+    
+    function modalWindowClick(eo) {
+        eo.stopPropagation();
+        console.log('modal window click');
+    }
+    
+    </script>
+</body>
+</html>

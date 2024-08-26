@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .basket {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: 3s;
+        }
+        .basket:hover{
+            background-color: green;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="#aaa">aaa</a>
+    <a href="#bbb">bbb</a>
+
+    <div class="item" draggable="true">item</div>
+    <div class="basket">basket</div>
+
+    <input type="text">
+
+    <script>
+      
+        window.addEventListener('hashchange', () => {
+            console.log('------1')
+        })
+
+        const inp = document.querySelector('[type="text"]')
+        const item = document.getElementsByClassName('item');
+        const basket = document.getElementsByClassName('basket');
+
+        inp.addEventListener('input', (e) => {
+            console.log('change', e.target.value)
+        })
+
+        basket[0].addEventListener('transitionend', (e) => {
+            console.log('transitionend')
+        })
+
+        let leftPos = 0
+
+        window.addEventListener('keydown', (e) => {
+
+            if (e.keyCode === 68) {
+                leftPos += 10;
+                item[0].style.marginLeft = leftPos + 'px'
+            }
+            if (e.keyCode === 65) {
+                leftPos -= 10;
+                item[0].style.marginLeft = leftPos + 'px'
+            }
+        })
+
+        item[0].addEventListener('dragstart', () => {
+            console.log('-----dragstart')
+        });
+        item[0].addEventListener('drag', () => {
+            console.log('-----drag')
+        })
+        item[0].addEventListener('dragend', () => {
+            console.log('-----dragend')
+        })
+
+
+
+        basket[0].addEventListener('dragenter', () => {
+            console.log('-----dragenter')
+        })
+        basket[0].addEventListener('dragover', (e) => {
+            e.preventDefault();
+            console.log('-----dragover')
+        })
+        basket[0].addEventListener('dragleave', () => {
+            console.log('-----dragleave')
+        })
+        basket[0].addEventListener('drop', (e) => {
+            e.target.style.color = '#fff'
+        })
+    </script>
+</body>
+
+</html>
