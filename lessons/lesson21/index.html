@@ -13,6 +13,7 @@
 
     <div id='IPage'></div>
 
+    <script src="renderAbout.js"></script>
     <script>
 
         "use strict";
@@ -51,8 +52,7 @@
                     pageHTML += "<p><i>" + photo.comment + "</i></p>";
                     break;
                 case 'About':
-                    pageHTML += "<h3>О нас</h3>";
-                    pageHTML += "<p>Мы круты!</p>";
+                    pageHTML += renderAbout();
                     break;
             }
             document.getElementById('IPage').innerHTML = pageHTML;
