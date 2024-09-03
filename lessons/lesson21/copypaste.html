@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nesciunt explicabo error, delectus iure dicta qui eum unde voluptatibus consequuntur odit earum, tempore quae illo, blanditiis accusamus natus placeat cumque!</h1>
+    
+    <script>
+
+        window.addEventListener('copy', (e) => {
+            const selection = document.getSelection();
+            event.clipboardData.setData("text/plain", `Hello ${selection.toString()}`) ;
+            event.preventDefault();
+        })
+
+    </script>
+
+</body>
+</html>
